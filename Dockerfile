@@ -12,7 +12,6 @@ RUN apt-get update -q && apt-get install -qy \
     && rm -rf /var/lib/apt/lists/*
 
 # Install pandoc
-RUN apt-get update -q && apt-get install -qy \
-    pandoc \
-    pandoc-citeproc \
-    && rm -rf /var/lib/apt/lists/*
+RUN wget https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb -O pandoc.deb \
+    && dpkg -i pandoc.deb \
+    && rm pandoc.deb
