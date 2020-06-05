@@ -11,7 +11,9 @@ RUN apt-get update -q && apt-get install -qy \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+ARG PANDOC_VERSION=2.9.2.1
+
 # Install pandoc
-RUN wget https://github.com/jgm/pandoc/releases/download/2.2.2.1/pandoc-2.2.2.1-1-amd64.deb -O pandoc.deb \
+RUN wget https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb -O pandoc.deb \
     && dpkg -i pandoc.deb \
     && rm pandoc.deb
